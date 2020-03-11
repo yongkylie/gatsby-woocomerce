@@ -30,5 +30,20 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-source-woocommerce",
+      options: {
+        // Base URL of Wordpress site
+        api: "helena.test",
+        // true if using https. false if nah.
+        https: false,
+        api_keys: {
+          consumer_key: process.env.GATSBY_WOOCOMERCE_CK,
+          consumer_secret: process.env.GATSBY_WOOCOMERCE_CS,
+        },
+        // Array of strings with fields you'd like to create nodes for...
+        fields: ["products"],
+      },
+    },
   ],
 }
